@@ -47,7 +47,7 @@ tmOption.Click();
 IWebElement createNewButton = webDriver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
 createNewButton.Click();
 
-Thread.Sleep(3000);
+Thread.Sleep(2000);
 
 //Select Time from dropdown
 IWebElement typeCodeDropdown = webDriver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]"));
@@ -57,15 +57,15 @@ timetypeCode.Click();
 
 //Enter Code
 IWebElement codeTextbox = webDriver.FindElement(By.Id("Code"));
-codeTextbox.SendKeys("ICMarch2024a");
+codeTextbox.SendKeys("GBTime");
 
 //Enter Description
 IWebElement descriptionTextbox = webDriver.FindElement(By.Id("Description"));
-descriptionTextbox.SendKeys("ICMarch2024a Description");
+descriptionTextbox.SendKeys("GBTime Description");
 
 //Enter Price per unit
 IWebElement priceTextbox = webDriver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
-priceTextbox.SendKeys("250.85");
+priceTextbox.SendKeys("2206.85");
 
 //Click on Select file button and select a file
 
@@ -73,14 +73,14 @@ priceTextbox.SendKeys("250.85");
 IWebElement saveButton = webDriver.FindElement(By.Id("SaveButton"));
 saveButton.Click();
 
-Thread.Sleep(3000);
+Thread.Sleep(2000);
 
 //Check if new Time/Material record has been created successfully
 IWebElement goToLastPageButton = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
 goToLastPageButton.Click();
 
 IWebElement newCode = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-if (newCode.Text == "ICMarch2024a")
+if (newCode.Text == "GBTime")
 {
     Console.WriteLine("New Time record has been created successfully");
 }
@@ -96,12 +96,12 @@ editButton.Click();
 //Edit Code to "b"
 IWebElement codeTextboxEdit = webDriver.FindElement(By.Id("Code"));
 codeTextboxEdit.Clear();
-codeTextboxEdit.SendKeys("ICMarch2024b");
+codeTextboxEdit.SendKeys("GBTimeNew");
 
 //Edit Description to "b"
 IWebElement descriptionTextboxEdit = webDriver.FindElement(By.Id("Description"));
 descriptionTextboxEdit.Clear();
-descriptionTextboxEdit.SendKeys("ICMarch2024b Description");
+descriptionTextboxEdit.SendKeys("GBTimeNew Description");
 
 //Edit Price per unit
 IWebElement priceTextboxEdit = webDriver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[4]/div/span[1]/span/input[1]"));
@@ -110,7 +110,7 @@ Actions actions = new Actions(webDriver);
 actions.KeyDown(Keys.Control);
 actions.SendKeys("a");
 actions.KeyUp(Keys.Control);
-actions.SendKeys("585.32");
+actions.SendKeys("5785.32");
 actions.Build();
 actions.Perform();
 
@@ -118,7 +118,7 @@ actions.Perform();
 IWebElement saveButtonEdit = webDriver.FindElement(By.Id("SaveButton"));
 saveButtonEdit.Click();
 
-Thread.Sleep(3000);
+Thread.Sleep(2000);
 
 //Check if new Time/Material record has been edited successfully
 IWebElement goToLastPageButtonEdit = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
@@ -129,7 +129,7 @@ goToLastPageButtonEdit.Click();
 IWebElement deleteButton = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[2]"));
 deleteButton.Click();
 
-Thread.Sleep(3000);
+Thread.Sleep(2000);
 
 //Click on Ok on pop-up window to delete item
 //IAlert alert = webDriver.SwitchTo().Alert();
@@ -139,7 +139,7 @@ Thread.Sleep(3000);
 IAlert alert = webDriver.SwitchTo().Alert();
 alert.Dismiss();
 
-Thread.Sleep(3000);
+Thread.Sleep(2000);
 
 //Check if new Time/Material record has been deleted/cancelled deletion
 IWebElement goToLastPageButtonDelete = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
