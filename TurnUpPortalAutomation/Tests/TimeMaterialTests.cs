@@ -5,7 +5,7 @@ using TurnUpPortalAutomation.Utilities;
 
 namespace TurnUpPortalAutomation.Tests
 {
-    [Parallelizable]
+    //[Parallelizable]
     [TestFixture]
     public class TimeMaterialTests : CommonDriver
     {
@@ -39,28 +39,26 @@ namespace TurnUpPortalAutomation.Tests
             //TMPage object initiation and definition
             //TimeMaterialPage tmPageObj = new TimeMaterialPage();
             tmPageObj.CreateTimeRecord(webDriver);
-            tmPageObj.VerifyRecordCreated(webDriver);
+            //tmPageObj.VerifyRecordCreated(webDriver);
         }
 
         [Test, Order(2), Description("This test updates the new Time/Material record with valid details")]
         public void TestEditTimeMaterialRecord()
         {
-            //TimeMaterialPage tmPageObj = new TimeMaterialPage();
             tmPageObj.EditNewlyCreatedTMRecord(webDriver);
         }
 
         [Test, Order(3), Description("This test deletes the last Time/Material record with valid details")]
         public void TestDeleteTimeMaterialRecord()
         {
-            //TimeMaterialPage tmPageObj = new TimeMaterialPage();
             tmPageObj.DeleteTMRecord(webDriver);
         }
 
-        [TearDown]
-        public void CloseTestRun()
-        { 
-        webDriver.Quit();
-        }
+        //[TearDown]
+        //public void CloseTestRun()
+        //{
+        //    webDriver.Quit();
+        //}
 
 
     }

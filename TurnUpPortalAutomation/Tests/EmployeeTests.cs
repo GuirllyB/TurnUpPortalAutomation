@@ -5,7 +5,7 @@ using TurnUpPortalAutomation.Utilities;
 
 namespace TurnUpPortalAutomation.Tests
 {
-    [Parallelizable]
+    //[Parallelizable]
     [TestFixture]
     public class EmployeeTests : CommonDriver
     {
