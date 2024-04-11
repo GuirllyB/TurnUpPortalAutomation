@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using TurnUpPortalAutomation.Pages;
 
-internal class Program
+public class Program
 {
     private static void Main(string[] args)
     {
