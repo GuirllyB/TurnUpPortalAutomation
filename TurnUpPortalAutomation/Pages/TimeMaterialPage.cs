@@ -1,10 +1,6 @@
-﻿using OpenQA.Selenium.Interactions;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OpenQA.Selenium.Interactions;
 using TurnUpPortalAutomation.Utilities;
 
 namespace TurnUpPortalAutomation.Pages
@@ -57,16 +53,17 @@ namespace TurnUpPortalAutomation.Pages
 
         public void VerifyRecordCreated(IWebDriver webDriver)
            {
-                IWebElement newCode = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-                if (newCode.Text == "GBTime")
-                {
-                    Console.WriteLine("New Time record has been created successfully");
-                }
-                else
-                {
-                    Console.WriteLine("New Time record hasn't been created.");
-                }
+            IWebElement newCode = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            /*if (newCode.Text == "GBTime")
+            {
+                Assert.Pass("New Time record has been created successfully");
+            }
+            else
+            {
+                Assert.Fail("New Time record hasn't been created.");
+            }*/
 
+            Assert.That(newCode.Text == "GBTime", "New Time record hasn't been created.");
             }
 
         public void EditNewlyCreatedTMRecord(IWebDriver webDriver)
@@ -75,12 +72,12 @@ namespace TurnUpPortalAutomation.Pages
             IWebElement editButton = webDriver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[5]/a[1]"));
             editButton.Click();
 
-            //Edit Code to "b"
+            //Edit Code to add "New"
             IWebElement codeTextboxEdit = webDriver.FindElement(By.Id("Code"));
             codeTextboxEdit.Clear();
             codeTextboxEdit.SendKeys("GBTimeNew");
 
-            //Edit Description to "b"
+            //Edit Description to add "New"
             IWebElement descriptionTextboxEdit = webDriver.FindElement(By.Id("Description"));
             descriptionTextboxEdit.Clear();
             descriptionTextboxEdit.SendKeys("GBTimeNew Description");
